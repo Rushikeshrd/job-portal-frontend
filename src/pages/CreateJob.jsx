@@ -162,6 +162,7 @@ const CreateJob = () => {
               <input
                 type="url"
                 placeholder="Paste your image url: https://weshare.com/img1.jpg"
+                defaultValue={"https://ibb.co/QPSr68x"}
                 {...register("companyLogo")}
                 className="create-job-input"
               />
