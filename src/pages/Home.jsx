@@ -14,7 +14,7 @@ const Home = () => {
 
   useEffect(() => {
     setIsLoading(true);
-    fetch("http://localhost:5000/all-jobs")
+    fetch("https://job-portal-backend-q154.onrender.com/all-jobs")
       .then((res) => res.json())
       .then((data) => {
         setJobs(data);
@@ -32,7 +32,6 @@ const Home = () => {
   const filteredItems = jobs.filter(
     (job) => job.jobTitle.toLowerCase().indexOf(query.toLowerCase()) !== -1
   );
-
 
   // ----------- Radio Filtering -----------
   const handleChange = (event) => {
@@ -70,14 +69,14 @@ const Home = () => {
     let filteredJobs = jobs;
     // Filtering Input Items
 
-    console.log(filteredItems)
+    console.log(filteredItems);
     if (query) {
       filteredJobs = filteredItems;
     }
 
     // Applying selected filter
     if (selected) {
-      console.log((selected));
+      console.log(selected);
 
       filteredJobs = filteredJobs.filter(
         ({
@@ -92,7 +91,7 @@ const Home = () => {
           postingDate === selected ||
           parseInt(maxPrice) <= parseInt(selected) ||
           salaryType.toLowerCase() === selected.toLowerCase() ||
-         experienceLevel.toLowerCase() === selected.toLowerCase() ||
+          experienceLevel.toLowerCase() === selected.toLowerCase() ||
           employmentType.toLowerCase() === selected.toLowerCase()
       );
       console.log(filteredJobs);

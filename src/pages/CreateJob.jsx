@@ -14,12 +14,12 @@ const CreateJob = () => {
     register,
     handleSubmit,
     formState: { errors },
-    reset 
+    reset,
   } = useForm();
 
   const onSubmit = (data) => {
     data.skills = selectedOption;
-    fetch("http://localhost:5000/post-job", {
+    fetch("https://job-portal-backend-q154.onrender.com/post-job", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(data),
@@ -27,8 +27,8 @@ const CreateJob = () => {
       .then((res) => res.json())
       .then((result) => {
         // console.log(result);
-        if(result.acknowledged === true){
-          alert("Job Posted Successfully!!")
+        if (result.acknowledged === true) {
+          alert("Job Posted Successfully!!");
         }
         reset(); // Reset the form
       });
@@ -183,21 +183,23 @@ const CreateJob = () => {
 
           {/* 7th row */}
           <div className="w-full">
-          <label className="block mb-2 text-lg">Job Description</label>
-          <textarea
+            <label className="block mb-2 text-lg">Job Description</label>
+            <textarea
               className="w-full pl-3 py-1.5 focus:outline-none"
               rows={6}
               {...register("description")}
               placeholder="job description"
-              defaultValue={"Mollit in laborum tempor Lorem incididunt irure. Aute eu ex ad sunt. Pariatur sint culpa do incididunt eiusmod eiusmod culpa. laborum tempor Lorem incididunt."}
+              defaultValue={
+                "Mollit in laborum tempor Lorem incididunt irure. Aute eu ex ad sunt. Pariatur sint culpa do incididunt eiusmod eiusmod culpa. laborum tempor Lorem incididunt."
+              }
             />
           </div>
 
           {/* last row */}
           <div className="w-full">
-          <label className="block mb-2 text-lg">Job Posted by</label>
-          <input
-          type="email"
+            <label className="block mb-2 text-lg">Job Posted by</label>
+            <input
+              type="email"
               // value={user?.email}
               className="w-full pl-3 py-1.5 focus:outline-none"
               {...register("postedBy")}

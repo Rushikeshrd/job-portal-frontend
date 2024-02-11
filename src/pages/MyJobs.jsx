@@ -15,7 +15,7 @@ const MyJobs = () => {
   // console.log(control)
   useEffect(() => {
     setIsLoading(true);
-    fetch(`http://localhost:5000/myJobs/${user?.email}`)
+    fetch(`https://job-portal-backend-q154.onrender.com/myJobs/${user?.email}`)
       .then((res) => res.json())
       .then((data) => {
         // console.log(data);
@@ -40,37 +40,37 @@ const MyJobs = () => {
     setIsLoading(false);
   };
 
- // pagination previous and next
- const nextPage = () => {
-  if (indexOfLastItem < jobs.length) {
-    setCurrentPage(currentPage + 1);
-  }
-};
+  // pagination previous and next
+  const nextPage = () => {
+    if (indexOfLastItem < jobs.length) {
+      setCurrentPage(currentPage + 1);
+    }
+  };
 
-// delete a books
-const handleDelete = (id) => {
-  // console.log(id)
-  fetch(`http://localhost:5000/job/${id}`, {
-    method: "DELETE",
-  })
-    .then((res) => res.json())
-    .then((data) => {
-      // console.log(data);
-      // setAllBooks(data);
-      if(data.acknowledged === true){
-        alert("Job Deleted Successfully!!")
-      }
-    });
-};
+  // delete a books
+  const handleDelete = (id) => {
+    // console.log(id)
+    fetch(`https://job-portal-backend-q154.onrender.com/job/${id}`, {
+      method: "DELETE",
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        // console.log(data);
+        // setAllBooks(data);
+        if (data.acknowledged === true) {
+          alert("Job Deleted Successfully!!");
+        }
+      });
+  };
 
-const prevPage = () => {
-  if (currentPage > 1) {
-    setCurrentPage(currentPage - 1);
-  }
-};
+  const prevPage = () => {
+    if (currentPage > 1) {
+      setCurrentPage(currentPage - 1);
+    }
+  };
 
-console.log(currentJobs)
-// 
+  console.log(currentJobs);
+  //
   return (
     <div className="max-w-screen-2xl container mx-auto xl:px-24 px-4">
       <div className="my-jobs-container">
@@ -158,10 +158,15 @@ console.log(currentJobs)
                             ${job.minPrice} - ${job.maxPrice}k
                           </td>
                           <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                            <button><Link to={`/edit-job/${job?._id}`}>Edit</Link></button>
+                            <button>
+                              <Link to={`/edit-job/${job?._id}`}>Edit</Link>
+                            </button>
                           </td>
                           <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                            <button className="bg-red-700 py-2 px-6 text-white rounded-sm" onClick={() => handleDelete(job._id)}>
+                            <button
+                              className="bg-red-700 py-2 px-6 text-white rounded-sm"
+                              onClick={() => handleDelete(job._id)}
+                            >
                               Delete
                             </button>
                           </td>
@@ -173,19 +178,19 @@ console.log(currentJobs)
               </div>
             </div>
           </div>
-                  {/* pagination */}
-        <div className="flex justify-center text-black space-x-8">
-          {currentPage > 1 && (
-            <button onClick={prevPage} className="hover:underline">
-              Previous
-            </button>
-          )}
-          {indexOfLastItem < jobs.length && (
-            <button onClick={nextPage} className="hover:underline">
-              Next
-            </button>
-          )}
-        </div>
+          {/* pagination */}
+          <div className="flex justify-center text-black space-x-8">
+            {currentPage > 1 && (
+              <button onClick={prevPage} className="hover:underline">
+                Previous
+              </button>
+            )}
+            {indexOfLastItem < jobs.length && (
+              <button onClick={nextPage} className="hover:underline">
+                Next
+              </button>
+            )}
+          </div>
         </section>
       </div>
     </div>

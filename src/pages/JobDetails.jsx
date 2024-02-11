@@ -2,14 +2,14 @@ import React, { useEffect, useState } from "react";
 import PageHeader from "../components/PageHeader";
 import { useParams } from "react-router-dom";
 import { FaBriefcase } from "react-icons/fa6";
-import Swal from 'sweetalert2'
+import Swal from "sweetalert2";
 
 const JobDetails = () => {
   const { id } = useParams();
   console.log(id);
   const [job, setJob] = useState([]);
   useEffect(() => {
-    fetch(`http://localhost:5000/all-jobs/${id}`)
+    fetch(`https://job-portal-backend-q154.onrender.com/all-jobs/${id}`)
       .then((res) => res.json())
       .then((data) => setJob(data));
   }, []);
@@ -19,7 +19,7 @@ const JobDetails = () => {
     const { value: url } = await Swal.fire({
       input: "url",
       inputLabel: "CV or Resume URL address",
-      inputPlaceholder: "Enter the URL"
+      inputPlaceholder: "Enter the URL",
     });
     if (url) {
       Swal.fire(`Entered URL: ${url}`).then((result) => {
@@ -31,8 +31,7 @@ const JobDetails = () => {
         }
       });
     }
-    
-  }
+  };
   return (
     <div className="max-w-screen-2xl container mx-auto xl:px-24 px-4">
       <PageHeader title={"Job Details Page"} path={"Single Job"} />
@@ -56,7 +55,10 @@ const JobDetails = () => {
           <button className="bg-blue px-6 py-1 text-white rounded-sm">
             {job.employmentType}
           </button>
-          <button className="bg-indigo-700 px-6 py-1 text-white rounded-sm ms-2" onClick={handleJobApply}>
+          <button
+            className="bg-indigo-700 px-6 py-1 text-white rounded-sm ms-2"
+            onClick={handleJobApply}
+          >
             Apply Now
           </button>
         </div>
@@ -118,9 +120,36 @@ const JobDetails = () => {
         </div>
 
         <div className="text-primary/75 my-5 space-y-6">
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis tempore alias dolores. Maxime id quas, asperiores dolor illo veritatis quibusdam sint possimus quod hic nulla officiis necessitatibus laudantium expedita commodi?Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nulla, cum nostrum. Exercitationem, dolores, tenetur culpa quas perspiciatis, libero iste voluptate totam mollitia facere fugiat fugit veritatis accusantium quae aliquam. Labore?</p>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis tempore alias dolores. Maxime id quas, asperiores dolor illo veritatis quibusdam sint possimus quod hic nulla officiis necessitatibus laudantium expedita commodi?Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nulla, cum nostrum. Exercitationem, dolores, tenetur culpa quas perspiciatis, libero iste voluptate totam mollitia facere fugiat fugit veritatis accusantium quae aliquam. Labore?</p>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis tempore alias dolores. Maxime id quas, asperiores dolor illo veritatis quibusdam sint possimus quod hic nulla officiis necessitatibus laudantium expedita commodi?Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nulla, cum nostrum. Exercitationem, dolores, tenetur culpa quas perspiciatis, libero iste voluptate totam mollitia facere fugiat fugit veritatis accusantium quae aliquam. Labore?</p>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis
+            tempore alias dolores. Maxime id quas, asperiores dolor illo
+            veritatis quibusdam sint possimus quod hic nulla officiis
+            necessitatibus laudantium expedita commodi?Lorem ipsum, dolor sit
+            amet consectetur adipisicing elit. Nulla, cum nostrum.
+            Exercitationem, dolores, tenetur culpa quas perspiciatis, libero
+            iste voluptate totam mollitia facere fugiat fugit veritatis
+            accusantium quae aliquam. Labore?
+          </p>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis
+            tempore alias dolores. Maxime id quas, asperiores dolor illo
+            veritatis quibusdam sint possimus quod hic nulla officiis
+            necessitatibus laudantium expedita commodi?Lorem ipsum, dolor sit
+            amet consectetur adipisicing elit. Nulla, cum nostrum.
+            Exercitationem, dolores, tenetur culpa quas perspiciatis, libero
+            iste voluptate totam mollitia facere fugiat fugit veritatis
+            accusantium quae aliquam. Labore?
+          </p>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis
+            tempore alias dolores. Maxime id quas, asperiores dolor illo
+            veritatis quibusdam sint possimus quod hic nulla officiis
+            necessitatibus laudantium expedita commodi?Lorem ipsum, dolor sit
+            amet consectetur adipisicing elit. Nulla, cum nostrum.
+            Exercitationem, dolores, tenetur culpa quas perspiciatis, libero
+            iste voluptate totam mollitia facere fugiat fugit veritatis
+            accusantium quae aliquam. Labore?
+          </p>
         </div>
       </div>
     </div>
