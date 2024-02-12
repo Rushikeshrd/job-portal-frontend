@@ -15,13 +15,14 @@ const SignUp = () => {
   const [errorMessage, seterrorMessage] = useState("");
   const [registerEmail, setRegisterEmail] = useState("");
   const [registerPassword, setRegisterPassword] = useState("");
+  const { signUpWithGmail, login } = useContext(AuthContext);
 
   const location = useLocation();
   const navigate = useNavigate();
 
   const from = location.state?.from?.pathname || "/";
 
-  const handleRegister = (event) => {
+  const handleRegisterMail = (event) => {
     event.preventDefault();
     createUserWithEmailAndPassword(auth, registerEmail, registerPassword)
       .then((userCredential) => {
@@ -35,11 +36,20 @@ const SignUp = () => {
       });
   };
 
+  const handleRegisteGmail = () => {
+    signUpWithGmail()
+      .then((result) => {
+        const user = result.user;
+        navigate(from, { replace: true });
+      })
+      .catch((error) => console.log(error));
+  };
+
   return (
     <div className="h-screen mx-auto container flex items-center justify-center">
       <div className="w-full max-w-xs mx-auto">
         <form
-          onSubmit={handleRegister}
+          onSubmit={handleRegisterMail}
           className="bg-white shadow-md rounded px-8 pt-8 pb-8 mb-4"
         >
           <h3 className="text-xl font-semibold mb-4">Sign Up Here!</h3>
@@ -86,7 +96,7 @@ const SignUp = () => {
               className="bg-blue hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline cursor-pointer"
               type="submit"
               value="Sign up"
-              onClick={handleRegister}
+              //onClick={handleRegisterMail}
             />
           </div>
 
@@ -98,7 +108,7 @@ const SignUp = () => {
               <button
                 className=" border-2 text-blue hover:text-white hover:bg-blue font-bold p-3 rounded-full focus:outline-none focus:shadow-outline flex items-center gap-2"
                 type="button"
-                onClick={handleRegister}
+                onClick={handleRegisteGmail}
               >
                 <FaGoogle />
               </button>
