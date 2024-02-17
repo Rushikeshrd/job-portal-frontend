@@ -7,7 +7,7 @@ import { AuthContext } from "../context/AuthProvider";
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const { user, logOut } = useContext(AuthContext);
-  console.log(user);
+  // console.log(user);
 
   const handleLogout = () => {
     logOut()
@@ -204,7 +204,94 @@ const Navbar = () => {
           isMenuOpen ? "" : "hidden"
         }`}
       >
+        {user ? (
+          <>
+            <div className="flex gap-4 items-center">
+              <div className="flex -space-x-2 overflow-hidden">
+                {user?.photoURL ? (
+                  <>
+                    {" "}
+                    <div className="flex flex-col gap-2">
+                      <div className="flex gap-4 items-center justify-center">
+                        <img
+                          className="inline-block h-5 w-5 rounded-full ring-1 ring-white"
+                          src={user?.photoURL}
+                          alt="user-profile"
+                        />
+                        <p className="text-white py-1 text-sm">{user.email}</p>
+                      </div>
+                      <div className="w-auto flex ml-8 justify-end">
+                        <button
+                          onClick={handleLogout}
+                          type="button"
+                          className="text-red-700 hover:text-white border border-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-xs px-5 py-2.5 text-center me-2 mb-2 dark:border-red-500 dark:text-red-500 dark:hover:text-white dark:hover:bg-red-600 dark:focus:ring-red-900 "
+                        >
+                          Log out
+                        </button>
+                      </div>
+                    </div>
+                  </>
+                ) : (
+                  <>
+                    {" "}
+                    <div className="flex flex-col gap-4">
+                      <div className="flex gap-4 items-center justify-center">
+                        <img
+                          className="inline-block h-5 w-5 rounded-full ring-1 ring-white"
+                          src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+                          alt=""
+                        />
+                        <p className="text-white py-1 text-sm">{user.email}</p>
+                      </div>
+                      <button
+                        onClick={handleLogout}
+                        type="button"
+                        className="text-red-700 hover:text-white border border-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-xs px-5 py-2.5 text-center me-2 mb-2 dark:border-red-500 dark:text-red-500 dark:hover:text-white dark:hover:bg-red-600 dark:focus:ring-red-900 "
+                      >
+                        Log out
+                      </button>
+                    </div>
+                  </>
+                )}
+              </div>
+
+              {/* <button onClick={handleLogout} className=" text-white py-1">
+                    Log out
+                  </button> */}
+            </div>
+          </>
+        ) : (
+          <>
+            <div className="flex gap-3 justify-center">
+              <button className="relative inline-flex items-center justify-center p-0.5 mb-2 me-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-purple-600 to-blue-500 group-hover:from-purple-600 group-hover:to-blue-500 hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800">
+                <span className="relative px-5 py-2.5 transition-all ease-in duration-75 bg-white dark:bg-gray-900 rounded-md group-hover:bg-opacity-0">
+                  <Link to="/login">Log in</Link>
+                </span>
+              </button>
+              <button className="relative inline-flex items-center justify-center p-0.5 mb-2 me-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-cyan-500 to-blue-500 group-hover:from-cyan-500 group-hover:to-blue-500 hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-cyan-200 dark:focus:ring-cyan-800">
+                <span className="relative px-5 py-2.5 transition-all ease-in duration-75 bg-white dark:bg-gray-900 rounded-md group-hover:bg-opacity-0">
+                  <Link to="/sign-up">Sign up</Link>
+                </span>
+              </button>
+              {/* <Link
+                to="/login"
+                className="text-base text-white first:text-white py-1"
+              >
+                Log in
+              </Link>
+              <br />
+              <Link
+                to="/sign-up"
+                className="text-base text-white first:text-white py-1"
+              >
+                Sign up
+              </Link> */}
+            </div>
+          </>
+        )}
+
         <ul>
+          <hr />
           {navItems.map(({ path, title }) => (
             <li
               key={path}
@@ -220,12 +307,13 @@ const Navbar = () => {
             </li>
           ))}
 
+          {/* 
           <li className="text-white py-1">
             <Link to="login">Log in</Link>
           </li>
           <li className="text-white py-1">
             <Link to="sign-up">Sign up</Link>
-          </li>
+          </li> */}
         </ul>
       </div>
     </header>
