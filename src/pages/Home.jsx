@@ -69,14 +69,14 @@ const Home = () => {
     let filteredJobs = jobs;
     // Filtering Input Items
 
-    console.log(filteredItems);
+    // console.log(filteredItems);
     if (query) {
       filteredJobs = filteredItems;
     }
 
     // Applying selected filter
     if (selected) {
-      console.log(selected);
+      // console.log(selected);
 
       filteredJobs = filteredJobs.filter(
         ({
