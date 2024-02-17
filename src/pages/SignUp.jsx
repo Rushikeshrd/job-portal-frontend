@@ -40,6 +40,7 @@ const SignUp = () => {
     signUpWithGmail()
       .then((result) => {
         const user = result.user;
+        alert("Account Created successfully!");
         navigate(from, { replace: true });
       })
       .catch((error) => console.log(error));

@@ -45,6 +45,7 @@ const Login = () => {
     signUpWithGmail()
       .then((result) => {
         const user = result.user;
+        alert("Login successful!");
         navigate(from, { replace: true });
       })
       .catch((error) => console.log(error));
@@ -136,7 +137,7 @@ const Login = () => {
           </div>
         </form>
         <p className="text-center text-gray-500 text-xs">
-          &copy;2023 JobPortal. All rights reserved.
+          &copy;2024 OpportunityNest. All rights reserved.
         </p>
       </div>
     </div>
