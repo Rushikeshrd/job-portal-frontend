@@ -1,13 +1,7 @@
 import React, { useContext, useState } from "react";
-import {
-  FaFacebook,
-  FaFacebookF,
-  FaGoogle,
-  FaInstagram,
-  FaLinkedin,
-} from "react-icons/fa6";
+
 import { AuthContext } from "../context/AuthProvider";
-import { useLocation, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../firebase/firebase.config";
 
@@ -15,6 +9,7 @@ const SignUp = () => {
   const [errorMessage, seterrorMessage] = useState("");
   const [registerEmail, setRegisterEmail] = useState("");
   const [registerPassword, setRegisterPassword] = useState("");
+  const [login1, setLogin1] = useState(false);
   const { signUpWithGmail, login } = useContext(AuthContext);
 
   const location = useLocation();
@@ -26,13 +21,16 @@ const SignUp = () => {
     event.preventDefault();
     createUserWithEmailAndPassword(auth, registerEmail, registerPassword)
       .then((userCredential) => {
-        console.log(userCredential);
+        // console.log(userCredential);
         alert("Account Created successfully!");
         navigate(from, { replace: true });
       })
       .catch((error) => {
         const errorMessage = error.message;
-        seterrorMessage("Error!!");
+        error.code =
+          "Email is already registered!! Please Login with your registered email.";
+        alert(error.code);
+        navigate("/login");
       });
   };
 
@@ -49,6 +47,11 @@ const SignUp = () => {
   return (
     <div className="h-screen mx-auto container flex items-center justify-center">
       <div className="w-full max-w-xs mx-auto">
+        <div className="flex justify-end">
+          <Link to={"/"} className="text-xs font-semibold hover:text-blue">
+            &larr; Back to Home
+          </Link>
+        </div>
         <form
           onSubmit={handleRegisterMail}
           className="bg-white shadow-md rounded px-8 pt-8 pb-8 mb-4"
@@ -102,7 +105,7 @@ const SignUp = () => {
           </div>
 
           {/* social login */}
-          <hr className="h-1 bg-gray-100 dark:bg-gray-400 mt-5" />
+          <hr className="h-1 bg-blue-100 dark:bg-blue-400 mt-5" />
           <div className="mt-8 text-center w-full mx-auto">
             <div className="flex items-center justify-center gap-4 w-full mx-auto">
               <button

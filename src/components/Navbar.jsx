@@ -141,20 +141,30 @@ const Navbar = () => {
                   {user?.photoURL ? (
                     <>
                       {" "}
-                      <img
-                        className="inline-block h-10 w-10 rounded-full ring-2 ring-white"
-                        src={user?.photoURL}
-                        alt=""
-                      />
+                      <div className="flex justify-center items-center gap-2">
+                        <img
+                          className="inline-block h-10 w-10 rounded-full ring-2 ring-white"
+                          src={user?.photoURL}
+                          alt=""
+                        />
+                        <p className="text-black py-1 text-sm font-bold text-center justify-center items-center">
+                          {user.displayName}
+                        </p>
+                      </div>
                     </>
                   ) : (
                     <>
                       {" "}
-                      <img
-                        className="inline-block h-10 w-10 rounded-full ring-2 ring-white"
-                        src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
-                        alt=""
-                      />
+                      <div className="flex justify-center items-center gap-2">
+                        <img
+                          className="inline-block h-10 w-10 rounded-full ring-2 ring-white"
+                          src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+                          alt=""
+                        />
+                        <p className="text-black py-1 text-sm font-bold text-center justify-center items-center">
+                          {user.email}
+                        </p>
+                      </div>
                     </>
                   )}
                 </div>
@@ -218,7 +228,9 @@ const Navbar = () => {
                           src={user?.photoURL}
                           alt="user-profile"
                         />
-                        <p className="text-white py-1 text-sm">{user.email}</p>
+                        <p className="text-white py-1 text-sm">
+                          {user.displayName}
+                        </p>
                       </div>
                       <div className="w-auto flex ml-8 justify-end">
                         <button
