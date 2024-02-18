@@ -11,6 +11,7 @@ import JobDetails from "../pages/JobDetails";
 import Login from "../pages/Login";
 import PrivateRoute from "../PrivateRoute/PrivateRoute";
 import SignUp from "../pages/SignUp";
+import ForgotPassword from "../pages/ForgotPassword";
 
 const router = createBrowserRouter([
   {
@@ -62,6 +63,10 @@ const router = createBrowserRouter([
   {
     path: "/sign-up",
     element: <SignUp />,
+  },
+  {
+    path: "/reset",
+    element: <ForgotPassword />,
   },
 ]);
 
