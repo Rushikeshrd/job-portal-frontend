@@ -77,7 +77,7 @@ const JobDetails = () => {
             <div className="flex items-center gap-2">
               <p className="text-xl font-bold mb-2">Salary :</p>
               <p className="text-xl font mb-2">
-                &#x20b9; {job.maxSalary} {job.salaryType} (Expected)
+                &#x20b9; {job.maxSalary} LPA {job.salaryType} (Expected)
               </p>
             </div>
             <div className="flex items-center gap-2">
