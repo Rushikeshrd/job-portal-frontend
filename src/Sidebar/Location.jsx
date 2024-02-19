@@ -3,6 +3,16 @@ import React from "react";
 import InputField from "../components/InputField";
 
 const Location = ({ handleChange }) => {
+  const handleSearch = () => {
+    const filter = jobs.filter(
+      (job) =>
+        job.jobTitle.toLowerCase().indexOf(searchText.toLowerCase()) !== -1
+    );
+    // console.log(filter);
+    setJobs(filter);
+    setIsLoading(false);
+  };
+
   return (
     <div>
       <h4 className="text-lg font-medium mb-2">Location</h4>

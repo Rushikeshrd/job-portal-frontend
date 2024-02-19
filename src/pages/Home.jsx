@@ -94,7 +94,7 @@ const Home = () => {
           experienceLevel.toLowerCase() === selected.toLowerCase() ||
           employmentType.toLowerCase() === selected.toLowerCase()
       );
-      console.log(filteredJobs);
+      // console.log(filteredJobs);
     }
 
     // Slice the data based on the current page
@@ -157,7 +157,7 @@ const Home = () => {
           )}
         </div>
         <div className="bg-white p-4 rounded">
-          <Newsletter />
+          <Newsletter handleChange={handleChange} />
         </div>
       </div>
     </div>

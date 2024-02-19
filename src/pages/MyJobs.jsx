@@ -58,7 +58,7 @@ const MyJobs = () => {
         // console.log(data);
         // setAllBooks(data);
         if (data.acknowledged === true) {
-          alert("Job Deleted Successfully!!");
+          alert("Job Deleted Successfully!! Refresh the page to see changes");
         }
       });
   };
@@ -155,7 +155,7 @@ const MyJobs = () => {
                             {job.companyName}
                           </td>
                           <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                            ${job.minPrice} - ${job.maxPrice}k
+                            {job.maxSalary}
                           </td>
                           <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
                             <button>

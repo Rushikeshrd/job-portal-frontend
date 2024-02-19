@@ -1,11 +1,19 @@
 import React from "react";
 import { FaEnvelopeOpenText, FaRocket } from "react-icons/fa6";
+import WorkExperience from "../Sidebar/WorkExperience";
+import EmploymentType from "../Sidebar/EmploymentType";
+import JobPostingData from "../Sidebar/JobPostingData";
 
-const Newsletter = () => {
+const Newsletter = ({ handleChange }) => {
   return (
     <div>
-      <div>
-        <h3 className="text-lg font-bold mb-2 flex items-center gap-2">
+      <div className="space-y-5">
+        <h3 className="text-lg font-bold mb-2">Job Filters</h3>
+
+        <WorkExperience handleChange={handleChange} />
+        <EmploymentType handleChange={handleChange} />
+
+        {/* <h3 className="text-lg font-bold mb-2 flex items-center gap-2">
           {" "}
           <FaEnvelopeOpenText /> Email me for jobs
         </h3>
@@ -24,11 +32,11 @@ const Newsletter = () => {
             value="Subcribe"
             className="w-full block py-2 bg-blue rounded-sm text-white cursor-pointer font-semibold"
           />
-        </div>
+        </div> */}
       </div>
 
       {/* 2nd section */}
-      <div className="mt-20">
+      {/* <div className="mt-20">
         <h3 className="text-lg font-bold mb-2 flex items-center gap-2">
           <FaRocket /> Get noticed faster
         </h3>
@@ -43,7 +51,7 @@ const Newsletter = () => {
             className="w-full block py-2 bg-blue rounded-sm text-white cursor-pointer font-semibold"
           />
         </div>
-      </div>
+      </div> */}
     </div>
   );
 };

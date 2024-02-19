@@ -137,7 +137,7 @@ const Navbar = () => {
           {user ? (
             <>
               <div className="flex gap-4 items-center">
-                <div class="flex -space-x-2 overflow-hidden">
+                <div className="flex -space-x-2 overflow-hidden">
                   {user?.photoURL ? (
                     <>
                       {" "}
