@@ -84,8 +84,9 @@ const CreateJob = () => {
           {/* 2nd row */}
           <div className="create-job-flex">
             <div className="lg:w-1/2 w-full">
-              <label className="block mb-2 text-lg">Salary</label>
+              <label className="block mb-2 text-lg">Salary (in lakhs)</label>
               <input
+                type="number"
                 required
                 placeholder="$20k"
                 {...register("maxSalary")}
@@ -161,7 +162,7 @@ const CreateJob = () => {
                 required
               >
                 <option value="">Select Your Experience Level</option>
-                <option value="0-1 Experience">0-1 Year</option>
+                <option value="0-1 year Experience">0-1 Year</option>
                 <option value="<= 2 Years">&#60;= 2 Years</option>
                 <option value="<= 3 Years">&#60;= 3 Years</option>
                 <option value="<= 4 Years">&#60;= 4 Years</option>
