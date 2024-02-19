@@ -84,22 +84,33 @@ const CreateJob = () => {
           {/* 2nd row */}
           <div className="create-job-flex">
             <div className="lg:w-1/2 w-full">
-              <label className="block mb-2 text-lg">Minimum Salary</label>
+              <label className="block mb-2 text-lg">Salary</label>
               <input
                 required
                 placeholder="$20k"
-                {...register("minPrice")}
+                {...register("maxSalary")}
                 className="create-job-input"
               />
             </div>
             <div className="lg:w-1/2 w-full">
-              <label className="block mb-2 text-lg">Maximum Salary</label>
-              <input
-                required
-                placeholder="$100k"
-                {...register("maxPrice")}
+              <label className="block mb-2 text-lg">
+                Qualification Required
+              </label>
+              <select
+                {...register("qualificationReq")}
                 className="create-job-input"
-              />
+                required
+              >
+                <option value="">Choose qualification</option>
+                <option value="Bsc">Bsc</option>
+                <option value="Msc">Msc</option>
+                <option value="B.Tech">B.Tech</option>
+                <option value="M.Tech">M.Tech</option>
+                <option value="MBA">MBA</option>
+                <option value="BA">BA</option>
+                <option value="LLB">LLB</option>
+                <option value="PhD">PhD</option>
+              </select>
             </div>
           </div>
 
@@ -150,9 +161,11 @@ const CreateJob = () => {
                 required
               >
                 <option value="">Select Your Experience Level</option>
-                <option value="NoExperience">No experience</option>
-                <option value="Internship">Internship</option>
-                <option value="Work remotely">Work remotely</option>
+                <option value="0-1 Experience">0-1 Year</option>
+                <option value="<= 2 Years">&#60;= 2 Years</option>
+                <option value="<= 3 Years">&#60;= 3 Years</option>
+                <option value="<= 4 Years">&#60;= 4 Years</option>
+                <option value="<= 5 Years">&#60;= 5 Years</option>
               </select>
             </div>
           </div>
@@ -194,7 +207,7 @@ const CreateJob = () => {
                 <option value="">Select your job type</option>
                 <option value="Full-time">Full-time</option>
                 <option value="Part-time">Part-time</option>
-                <option value="Temporary">Temporary</option>
+                <option value="Internship">Internship</option>
               </select>
             </div>
           </div>
@@ -225,6 +238,27 @@ const CreateJob = () => {
               {...register("postedBy")}
               placeholder="your email"
             />
+          </div>
+
+          <div className="flex flex-col lg:flex-row items-center justify-between gap-8">
+            <div className="lg:w-1/2 w-full">
+              <label className="block mb-2 text-lg">Apply Link</label>
+              <input
+                required
+                {...register("applyLink")}
+                className="block w-full flex-1 border-1 bg-white py-1.5 pl-3 text-gray-900 placeholder:text-gray-400 focus:outline-none sm:text-sm sm:leading-6"
+                placeholder="apply link"
+              />
+            </div>
+            <div className="lg:w-1/2 w-full">
+              <label className="block mb-2 text-lg">Company Site</label>
+              <input
+                required
+                placeholder="https://weshare.com/"
+                {...register("companySite")}
+                className="create-job-input"
+              />
+            </div>
           </div>
 
           <input

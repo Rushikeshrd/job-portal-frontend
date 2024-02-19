@@ -16,8 +16,7 @@ const Card = ({ data }) => {
     companyName,
     jobLocation,
     employmentType,
-    minPrice,
-    maxPrice,
+    maxSalary,
     postingDate,
     description,
   } = data;
@@ -41,7 +40,7 @@ const Card = ({ data }) => {
                 <FiClock /> {employmentType}
               </span>
               <span className="flex items-center gap-2">
-                <FiDollarSign /> {minPrice}-{maxPrice}k
+                &#x20b9; {maxSalary}
               </span>
               <span className="flex items-center gap-2">
                 <FiCalendar /> {postingDate}
