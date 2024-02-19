@@ -1,18 +1,9 @@
 import { Input } from "postcss";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import InputField from "../components/InputField";
+import Card from "../components/Card";
 
 const Location = ({ handleChange }) => {
-  const handleSearch = () => {
-    const filter = jobs.filter(
-      (job) =>
-        job.jobTitle.toLowerCase().indexOf(searchText.toLowerCase()) !== -1
-    );
-    // console.log(filter);
-    setJobs(filter);
-    setIsLoading(false);
-  };
-
   return (
     <div>
       <h4 className="text-lg font-medium mb-2">Location</h4>
@@ -23,26 +14,38 @@ const Location = ({ handleChange }) => {
         </label>
         <InputField
           handleChange={handleChange}
-          value="london"
-          title="London"
+          value="Hyderabad"
+          title="Hyderabad"
           name="test"
         />
         <InputField
           handleChange={handleChange}
-          value="seattle"
-          title="Seattle"
+          value="Pune"
+          title="Pune"
           name="test"
         />
         <InputField
           handleChange={handleChange}
-          value="madrid"
-          title="Madrid"
+          value="Banglore"
+          title="Banglore"
           name="test"
         />
         <InputField
           handleChange={handleChange}
-          value="boston"
-          title="Boston"
+          value="Chennai"
+          title="Chennai"
+          name="test"
+        />
+        <InputField
+          handleChange={handleChange}
+          value="Delhi"
+          title="Delhi"
+          name="test"
+        />
+        <InputField
+          handleChange={handleChange}
+          value="Mumbai"
+          title="Mumbai"
           name="test"
         />
       </div>

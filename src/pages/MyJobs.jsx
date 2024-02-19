@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../context/AuthProvider";
+import { reload } from "firebase/auth";
 
 const MyJobs = () => {
   const { user } = useContext(AuthContext);
@@ -60,6 +61,7 @@ const MyJobs = () => {
         if (data.acknowledged === true) {
           alert("Job Deleted Successfully!! Refresh the page to see changes");
         }
+        window.location.reload();
       });
   };
 
@@ -155,7 +157,7 @@ const MyJobs = () => {
                             {job.companyName}
                           </td>
                           <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                            {job.maxSalary}
+                            {job.maxSalary} LPA
                           </td>
                           <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
                             <button>

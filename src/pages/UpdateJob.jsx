@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
-import { useLoaderData, useParams } from "react-router-dom";
+import { useLoaderData, useNavigate, useParams } from "react-router-dom";
 import CreatableSelect from "react-select/creatable";
 import PageHeader from "../components/PageHeader";
 
@@ -28,6 +28,8 @@ const UpdateJob = () => {
 
   // const { user } = useContext(AuthContext);
 
+  const navigate = useNavigate();
+
   const {
     register,
     handleSubmit,
@@ -54,6 +56,7 @@ const UpdateJob = () => {
         if (result.acknowledged === true) {
           alert("Job Updated Successfully!!");
         }
+        navigate("/my-job");
       });
   };
 
