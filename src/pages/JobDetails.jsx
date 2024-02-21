@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import PageHeader from "../components/PageHeader";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 
 const JobDetails = () => {
   const { id } = useParams();
