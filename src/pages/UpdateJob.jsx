@@ -126,6 +126,7 @@ const UpdateJob = () => {
                 defaultValue={qualificationReq}
               >
                 <option value="">Choose qualification</option>
+                <option value="Graduate">Graduate</option>
                 <option value="Bsc">Bsc</option>
                 <option value="Msc">Msc</option>
                 <option value="B.Tech">B.Tech</option>
