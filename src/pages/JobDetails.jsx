@@ -40,7 +40,7 @@ const JobDetails = () => {
                 <p className="text-xl font-bold mb-2">Company Website :</p>
                 <p className="text-xl font mb-2">
                   <a
-                    className="text-xl font mb-2 text-blue sm:text-wrap"
+                    className="text-xl font mb-2 text-sky-500 sm:text-wrap"
                     href={job.companySite}
                   >
                     {job.companySite}
