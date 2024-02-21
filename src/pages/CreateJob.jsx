@@ -218,7 +218,7 @@ const CreateJob = () => {
           <div className="w-full">
             <label className="block mb-2 text-lg">Job Description</label>
             <textarea
-              maxlength="100"
+              maxlength="500"
               required
               className="w-full pl-3 py-1.5 focus:outline-none"
               rows={6}
