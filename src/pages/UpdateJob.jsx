@@ -220,7 +220,7 @@ const UpdateJob = () => {
                 required
                 type="url"
                 placeholder="Paste your image url: https://weshare.com/img1.jpg"
-                defaultValue={"https://i.ibb.co/nkq2Nm7/Linear.png"}
+                defaultValue={companyLogo}
                 {...register("companyLogo")}
                 className="create-job-input"
               />
