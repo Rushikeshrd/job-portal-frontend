@@ -1,9 +1,6 @@
 import React, { useEffect, useState } from "react";
 import PageHeader from "../components/PageHeader";
 import { useParams } from "react-router-dom";
-import { FaBriefcase } from "react-icons/fa6";
-import Swal from "sweetalert2";
-import { Link } from "react-router-dom";
 
 const JobDetails = () => {
   const { id } = useParams();
