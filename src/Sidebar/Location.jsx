@@ -4,6 +4,7 @@ import InputField from "../components/InputField";
 import Card from "../components/Card";
 
 const Location = ({ handleChange }) => {
+
   return (
     <div>
       <h4 className="text-lg font-medium mb-2">Location</h4>
