@@ -65,7 +65,7 @@ const CreateJob = () => {
               <label className="block mb-2 text-lg">Job Title</label>
               <input
                 required
-                defaultValue="Web Developer"
+                placeholder="Ex: Web Developer"
                 {...register("jobTitle")}
                 className="block w-full flex-1 border-1 bg-white py-1.5 pl-3 text-gray-900 placeholder:text-gray-400 focus:outline-none sm:text-sm sm:leading-6"
               />
@@ -88,7 +88,7 @@ const CreateJob = () => {
               <input
                 type="number"
                 required
-                placeholder="$20k"
+                placeholder="0"
                 {...register("maxSalary")}
                 className="create-job-input"
               />
@@ -222,9 +222,6 @@ const CreateJob = () => {
               rows={6}
               {...register("description")}
               placeholder="job description"
-              defaultValue={
-                "Mollit in laborum tempor Lorem incididunt irure. Aute eu ex ad sunt. Pariatur sint culpa do incididunt eiusmod eiusmod culpa. laborum tempor Lorem incididunt."
-              }
             />
           </div>
 
@@ -245,6 +242,7 @@ const CreateJob = () => {
             <div className="lg:w-1/2 w-full">
               <label className="block mb-2 text-lg">Apply Link</label>
               <input
+                type="url"
                 required
                 {...register("applyLink")}
                 className="block w-full flex-1 border-1 bg-white py-1.5 pl-3 text-gray-900 placeholder:text-gray-400 focus:outline-none sm:text-sm sm:leading-6"
@@ -255,6 +253,7 @@ const CreateJob = () => {
               <label className="block mb-2 text-lg">Company Site</label>
               <input
                 required
+                type="url"
                 placeholder="https://weshare.com/"
                 {...register("companySite")}
                 className="create-job-input"

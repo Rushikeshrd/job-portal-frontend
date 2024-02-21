@@ -52,7 +52,9 @@ const Card = ({ data }) => {
               </span>
             </div>
 
-            <p className="text-base text-primary/70 ">{description}</p>
+            <p className="text-base text-primary/70 text-justify ">
+              {description}
+            </p>
           </div>
         </Link>
       </section>
