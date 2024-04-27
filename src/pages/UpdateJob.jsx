@@ -39,8 +39,7 @@ const UpdateJob = () => {
 
   const onSubmit = (data) => {
     data.skills = selectedOption;
-    // console.log(data)
-    // update the book object
+
     fetch(`https://job-portal-backend-q154.onrender.com/update-job/${id}`, {
       method: "PATCH",
 

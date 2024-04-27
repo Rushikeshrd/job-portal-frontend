@@ -11,6 +11,9 @@ import Login from "../pages/Login";
 import PrivateRoute from "../PrivateRoute/PrivateRoute";
 import SignUp from "../pages/SignUp";
 import ForgotPassword from "../pages/ForgotPassword";
+import About from "../pages/About";
+import Privacy from "../pages/Privacy";
+import Contact from "../pages/Contact";
 
 const router = createBrowserRouter([
   {
@@ -62,6 +65,18 @@ const router = createBrowserRouter([
   {
     path: "/reset",
     element: <ForgotPassword />,
+  },
+  {
+    path: "/about",
+    element: <About />,
+  },
+  {
+    path: "/privacy",
+    element: <Privacy />,
+  },
+  {
+    path: "/contact",
+    element: <Contact />,
   },
 ]);
 
