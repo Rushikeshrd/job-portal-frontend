@@ -12,6 +12,7 @@ const JobDetails = () => {
       .then((data) => setJob(data));
   }, []);
 
+
   return (
     <div className="max-w-screen-2xl container mx-auto xl:px-24 px-4">
       <PageHeader title={"Job Details Page"} path={"Single Job"} />
