@@ -16,7 +16,7 @@ const MyJobs = () => {
   // console.log(control)
   useEffect(() => {
     setIsLoading(true);
-    fetch(`https://job-portal-backend-q154.onrender.com/myJobs/${user?.email}`)
+    fetch(`https://job-portal-server-pl6s.onrender.com/myJobs/${user?.email}`)
       .then((res) => res.json())
       .then((data) => {
         // console.log(data);

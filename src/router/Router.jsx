@@ -45,7 +45,7 @@ const router = createBrowserRouter([
         element: <UpdateJob />,
         loader: ({ params }) =>
           fetch(
-            `https://job-portal-backend-q154.onrender.com/all-jobs/${params.id}`
+            `https://job-portal-server-pl6s.onrender.com/all-jobs/${params.id}`
           ),
       },
       {

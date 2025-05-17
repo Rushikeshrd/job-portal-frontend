@@ -21,7 +21,7 @@ const CreateJob = () => {
 
   const onSubmit = (data) => {
     data.skills = selectedOption;
-    fetch("https://job-portal-backend-q154.onrender.com/post-job", {
+    fetch("https://job-portal-server-pl6s.onrender.com/post-job", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(data),
